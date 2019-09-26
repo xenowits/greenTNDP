@@ -12,18 +12,57 @@ vector<pair<int,int> > original_graph[MAXN], residual_graph[MAXN];
 //struct for demand
 
 struct demand {
-  
+
   //demand id, source of demand, destination of demand and demand of traffic flow
   //from s to t
 
   demand(int a, int b, int c, int d) : d(a), s(b), t(c), h(d)
   {
-    cout << "constructor called" << endl;
+    //cout << "constructor called" << endl;
   }
 
   int d, s, t, h;
 
 };
+
+// vector<int> bfs(int src,int dest)
+// {
+//   vector<int>shortest_path;
+//   bool visited[MAXN];
+//   memset(visited,false,sizeof(visited));
+//   queue<int>q;
+//   q.push(src);
+//   visited[src]=true;
+//   shortest_path.push_back(src);
+//   while(!q.empty())
+//   {
+//     int u=q.front();
+//     q.pop();
+//     for(auto v:original_graph[src])
+//     {
+//       if(!visited[v])
+//       {
+//         shortest_path.push_back(v);
+//         visited[v]=true;
+//         q.push(v);
+//         if(v==dest)
+//         return shortest_path;
+//       }
+//     }
+//   }
+// }
+
+vector<vector<int>> find_TNDP(demand d)
+{
+  vector<vector<int>> output;
+  int s=d.s;
+  int t=d.t;
+  for(int i=0;i<2;i++)
+  {
+    vector<int>path;
+
+  }
+}
 
 int main()
 {
@@ -58,12 +97,12 @@ int main()
     demands.emplace_back(i,u,v,h);
   }
 
-  // sort(demands.begin(), demands.end(), [](const demand& a, const demand& b) -> bool
-  // {
-  //   return a.h > b.h;
-  // });
+  sort(demands.begin(), demands.end(), [](const demand& a, const demand& b) -> bool
+  {
+    return a.h > b.h;
+  });
 
-  cout << "sab sahi boss" << endl;
+
 
   return 0;
 }
